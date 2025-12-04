@@ -56,6 +56,8 @@ function countWords(sentence: string) {
 
 console.log(countWords("TypeScript makes JavaScript better"));
 
+/* ------------------------------------ 6 ----------------------------------- */
+
 /* ----------------------------------- 11 ----------------------------------- */
 // find maximun number
 function getMax(arr: number[]) {
@@ -107,12 +109,18 @@ function minutesToHours(minutes: number) {
 
 console.log(minutesToHours(90));
 
-/* ----------------------------------- 15 ----------------------------------- */
-function removeDuplicates(arr: number[]) {
+/* ----------------------------------- 15 ----------------------------------- */ function removeDuplicates(arr: number[]) {
   let result: number[] = [];
 
   for (let i = 0; i < arr.length; i++) {
-    if (!result.includes(arr[i])) {
+    let sudahAda = false;
+    for (let j = 0; j < result.length; j++) {
+      if (arr[i] === result[j]) {
+        sudahAda = true;
+        break;
+      }
+    }
+    if (!sudahAda) {
       result.push(arr[i]);
     }
   }
