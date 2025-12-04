@@ -54,7 +54,7 @@ function countWords(sentence: string) {
   return count;
 }
 
-console.log(countWords("TypeScript makes JavaScript better")); // 4
+console.log(countWords("TypeScript makes JavaScript better"));
 
 /* ----------------------------------- 11 ----------------------------------- */
 // find maximun number
