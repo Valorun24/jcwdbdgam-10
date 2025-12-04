@@ -23,10 +23,38 @@ console.log(applyDiscount(250, 0.1));
 
 /* ------------------------------------ 4 ----------------------------------- */
 function convertToStringArray(arr: number[]) {
-  return arr.map((num) => String(num));
+  let result: string[] = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let strValue = arr[i] + "";
+    result.push(strValue);
+  }
+
+  return result;
 }
 
-console.log(convertToStringArray([1, 2, 3])); // ["1", "2", "3"]
+console.log(convertToStringArray([1, 2, 3]));
+
+/* ------------------------------------ 5 ----------------------------------- */
+function countWords(sentence: string) {
+  let count = 0;
+  let insideWord = false;
+
+  for (let i = 0; i < sentence.length; i++) {
+    const char = sentence[i];
+
+    if (char !== " " && insideWord === false) {
+      count++;
+      insideWord = true;
+    } else if (char === " ") {
+      insideWord = false;
+    }
+  }
+
+  return count;
+}
+
+console.log(countWords("TypeScript makes JavaScript better")); // 4
 
 /* ----------------------------------- 11 ----------------------------------- */
 // find maximun number
@@ -54,7 +82,19 @@ console.log(celciusToFahrenheit(25));
 
 /* ----------------------------------- 13 ----------------------------------- */
 function containsWord(sentence: string, word: string) {
-  return sentence.includes(word);
+  for (let i = 0; i < sentence.length; i++) {
+    let match = true;
+
+    for (let j = 0; j < word.length; j++) {
+      if (sentence[i + j] !== word[j]) {
+        match = false;
+        break;
+      }
+    }
+    if (match) return true;
+  }
+
+  return false;
 }
 
 console.log(containsWord("Learning TypeScript is fun", "fun"));
